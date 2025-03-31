@@ -1,0 +1,10 @@
+给你一个字符串 s 和一个字符 letter ，返回在 s 中等于 letter 字符所占的个数
+
+示例 1：
+输入：s = "foobar", letter = "o"
+输出：2
+
+
+示例 2：
+输入：s = "jjjj", letter = "k"
+输出：0
