@@ -34,22 +34,3 @@ ostream& operator<<(ostream& out,const ListNode* result){
     return out;
 }
 
-int main(){
-    int size{0};
-    int val{0};
-    cout<<"please enter size:\n";
-    cin>>size;
-    cout<<"please enter first val:\n";
-    cin>>val;
-    ListNode* head=new ListNode(val);
-    ListNode* curr=head;
-    for(int i=0;i<size-1;i++){
-        cout<<"please enter val:\n";
-        cin>>val;
-        curr->next=new ListNode(val);
-        curr=curr->next;
-    }
-    curr->next=nullptr;
-    Solution s1;
-    cout<<"after change: "<<s1.swapPairs(head);
-}
