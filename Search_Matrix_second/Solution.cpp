@@ -3,18 +3,25 @@
 #include<algorithm>
 using namespace std;
 
-class Solution{
+class Solution {
 public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target){
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
         if(matrix.empty() || matrix[0].empty()) return false;
-        int m = matrix.size(), n = matrix[0].size();
-        int left = 0, right = m * n - 1;
-        while(left <= right){
-            int mid = left + (right - left) / 2;
-            int mid_value = matrix[mid / n][mid % n];
-            if(mid_value == target) return true;
-            else if(mid_value < target) left = mid + 1;
-            else right = mid - 1;
+        
+        int m = matrix.size();
+        int n = matrix[0].size();
+        int row = 0, col = n - 1;  // 从右上角开始
+        
+        while(row < m && col >= 0) {
+            if(matrix[row][col] == target) {
+                return true;
+            }
+            else if(matrix[row][col] > target) {
+                col--;  // 当前值太大，向左移动
+            }
+            else {
+                row++;  // 当前值太小，向下移动
+            }
         }
         return false;
     }
